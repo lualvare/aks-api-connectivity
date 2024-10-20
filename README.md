@@ -1,4 +1,4 @@
-# aks-net-outbound-troubleshooting-1
+# AKS API Connectivity
 
 This repository provides a bicep template to deploy an AKS cluster scenario for AKS outbound network troubleshoting.
 
