@@ -4,7 +4,7 @@ param adminUsername string = 'azureuser'
 @description('Password for the Virtual Machine.')
 @minLength(12)
 @secure()
-param adminPassword string = 'azureuserpass'
+param adminPassword string = 'Azureuserpass0#'
 
 @description('Unique DNS Name for the Public IP used to access the Virtual Machine.')
 param dnsLabelPrefix string = toLower('${vmName}-${uniqueString(resourceGroup().id, vmName)}')
