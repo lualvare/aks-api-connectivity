@@ -41,11 +41,11 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
     ]
     networkProfile: {
       networkPlugin: aksClusterNetworkPlugin
-      networkPluginMode: aksNetworkPluginMode
+      //networkPluginMode: aksNetworkPluginMode
       podCidr: aksPodCidr
       serviceCidr: aksServiceCidr
       dnsServiceIP: aksDnsServiceIP
-      networkPolicy: aksClusterNetworkPolicy
+      //networkPolicy: aksClusterNetworkPolicy
       outboundType: aksClusterOutboundType
       loadBalancerSku: aksClusterLoadBalancerSku
     }
