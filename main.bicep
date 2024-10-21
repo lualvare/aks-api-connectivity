@@ -187,7 +187,7 @@ module kubernetes './modules/workloads.bicep' = {
 
 module dnsvm './modules/dns-vm-config.bicep' = {
   name: 'dnsvm'
-  scope: dnsvmResourceGroupName
+  scope: dnsvmrg
   params: {
      location: location
   }
