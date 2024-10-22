@@ -39,7 +39,7 @@ param vmSize string = 'Standard_D2s_v5'
 param location string = resourceGroup().location
 
 @description('Name of the virtual machine.')
-param vmName string = 'Custom-DNS-VM'
+param vmName string = 'Custom-DNS-Server'
 
 
 var nicName = 'myVMNic'
@@ -172,7 +172,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2022-03-01' = {
 }
 
 resource vmExtension 'Microsoft.Compute/virtualMachines/extensions@2021-07-01' = {
-  name: 'Custom-DNS-VM/CustomScriptExension'
+  name: 'Custom-DNS-Server/CustomScriptExension'
   location: location
   dependsOn: [
     vm
