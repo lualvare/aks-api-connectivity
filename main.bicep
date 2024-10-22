@@ -10,7 +10,7 @@ param resourceName string = 'api-connection'
 //var postgresqlName = 'postgresql-${userName}-${uniqueString(subscription().id)}'
 var aksResourceGroupName = 'aks-${resourceName}-${userName}-rg'
 var vnetResourceGroupName = 'vnet-${resourceName}-${userName}-rg'
-var dnsvmResourceGroupName = 'dnsvm-${resourceName}-${userName}-rg'
+var dnsserverResourceGroupName = 'dnsserver-${resourceName}-${userName}-rg'
 
 // WHAT IS THIS FOR????     <<<<<<<<<<<<<<<<<<<<<<============================
 var contributorRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
@@ -25,8 +25,8 @@ resource vnetrg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   location: location
 }
 
-resource dnsvmrg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: dnsvmResourceGroupName
+resource dnsserverrg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+  name: dnsserverResourceGroupName
   location: location
 }
 
@@ -185,9 +185,9 @@ module kubernetes './modules/workloads.bicep' = {
   }
 }
 
-module dnsvm './modules/dns-server-config.bicep' = {
-  name: 'dnsvm'
-  scope: dnsvmrg
+module dnsserver './modules/dns-server-config.bicep' = {
+  name: 'dnsserver'
+  scope: dnsserverrg
   params: {
      location: location
   }
