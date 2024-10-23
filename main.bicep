@@ -109,6 +109,7 @@ module vnetpeeringdb './modules/vnetpeering.bicep' = {
       allowForwardedTraffic: true
       remoteVirtualNetwork: {
         id: aksvnet.outputs.aksVnetId
+        id: dnsVirtualNetwork.outputs.remoteDNSVNetId
       }
     }    
   }
