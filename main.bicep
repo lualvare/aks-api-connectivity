@@ -199,3 +199,24 @@ module vnetpeeringaks './modules/vnetpeering.bicep' = {
   }
 }
 
+
+resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
+  name: 'aksPrivateEndpoint'
+  location: location
+  properties: {
+    subnet: {
+      id: aksvnet.outputs.aksVnetSubnetId
+    }
+    privateLinkServiceConnections: [
+      {
+        name: 'aksConnection'
+        properties: {
+          privateLinkServiceId: akscluster.outputs.aksClusterURI
+          groupIds: [
+            'management'
+          ]
+        }
+      }
+    ]
+  }
+}
