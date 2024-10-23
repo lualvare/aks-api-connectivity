@@ -1,4 +1,5 @@
-//targetScope = 'subscription'
+targetScope = 'subscription'
+targetScope = 'resourceGroup'
 
 param location string = 'canadacentral'
 param userName string = 'lab1'
