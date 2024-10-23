@@ -1,7 +1,7 @@
 param location string
 param clusterName string
 param aksSubnetId string
-param nodeCount1 int = 2
+param nodeCount int = 2
 param vmSize string = 'Standard_B4ms'
 param agentpoolName string = 'nodepool1'
 param aksClusterNetworkPlugin string = 'azure'
