@@ -87,7 +87,6 @@ resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-05-0
   }
 }
 
-/*
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' = {
   name: virtualNetworkName
   location: location
@@ -110,7 +109,6 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' = {
     ]
   }
 }
-*/
 
 resource nic 'Microsoft.Network/networkInterfaces@2022-05-01' = {
   name: nicName
