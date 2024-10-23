@@ -1,6 +1,7 @@
 targetScope = 'subscription'
 
 param DNSVNetName string
+param remoteDNSVNetId string
 param location string = 'canadacentral'
 param userName string = 'lab1'
 param resourceName string = 'api-connection'
