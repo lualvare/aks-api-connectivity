@@ -3,13 +3,12 @@ param staticIpAddress string = '10.1.0.10'
 @description('Username for the Virtual Machine.')
 param adminUsername string = 'azureuser'
 
-/*
 @description('Password for the Virtual Machine.')
 @minLength(12)
 // This line below is to enter the password string in a secure way.
 @secure()
-param adminPassword string
-*/
+param adminPassword string = "Adminpasswd0#"
+
 
 @description('Unique DNS Name for the Public IP used to access the Virtual Machine.')
 param dnsLabelPrefix string = toLower('${vmName}-${uniqueString(resourceGroup().id, vmName)}')
