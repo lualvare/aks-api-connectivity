@@ -105,40 +105,6 @@ module dbvnet './modules/db-vnet.bicep' = {
 */
 
 
-//VNET PEERING CONFIGURATION
-module vnetpeeringdns './modules/vnetpeering.bicep' = {
-  scope: dnsserverrg
-  name: 'vnetpeering'
-  params: {
-    peeringName: 'DNS-to-aks'
-    vnetName: DNSVNetName
-    properties: {
-      allowVirtualNetworkAccess: true
-      allowForwardedTraffic: true
-      remoteVirtualNetwork: {
-        //id: aksvnet.outputs.aksVnetId
-        id: remoteDNSVNetId
-      }
-    }    
-  }
-}
-
-module vnetpeeringaks './modules/vnetpeering.bicep' = {
-  scope: vnetrg
-  name: 'vnetpeering2'
-  params: {
-    peeringName: 'aks-to-dns'
-    vnetName: aksVnetName
-    properties: {
-      allowVirtualNetworkAccess: true
-      allowForwardedTraffic: true
-      remoteVirtualNetwork: {
-        id: aksVnetId
-      }
-    }    
-  }
-}
-
 
 /*
 module postgresqlModule './modules/postgresql-flexible-server.bicep' = {
@@ -199,3 +165,47 @@ module dnsserver './modules/dns-server-config.bicep' = {
      location: location
   }
 }
+
+
+
+
+//VNET PEERING CONFIGURATION
+module vnetpeeringdns './modules/vnetpeering.bicep' = {
+  scope: dnsserverrg
+  name: 'vnetpeering'
+  dependsOn: [
+  akscluster, aksvnet, dnsserver
+  ]
+  params: {
+    peeringName: 'DNS-to-aks'
+    vnetName: DNSVNetName
+    properties: {
+      allowVirtualNetworkAccess: true
+      allowForwardedTraffic: true
+      remoteVirtualNetwork: {
+        //id: aksvnet.outputs.aksVnetId
+        id: remoteDNSVNetId
+      }
+    }    
+  }
+}
+
+module vnetpeeringaks './modules/vnetpeering.bicep' = {
+  scope: vnetrg
+  name: 'vnetpeering2'
+  dependsOn: [
+  akscluster, aksvnet, dnsserver
+  ]
+  params: {
+    peeringName: 'aks-to-dns'
+    vnetName: aksVnetName
+    properties: {
+      allowVirtualNetworkAccess: true
+      allowForwardedTraffic: true
+      remoteVirtualNetwork: {
+        id: aksVnetId
+      }
+    }    
+  }
+}
+
