@@ -3,7 +3,8 @@ param adminUsername string = 'azureuser'
 
 @description('Password for the Virtual Machine.')
 @minLength(12)
-@secure()
+// This line below is to enter the password string in a secure way.
+//@secure()
 param adminPassword string = 'Azureuserpass0#'
 
 @description('Unique DNS Name for the Public IP used to access the Virtual Machine.')
