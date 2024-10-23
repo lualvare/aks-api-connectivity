@@ -162,7 +162,7 @@ module dnsserver './modules/dns-server-config.bicep' = {
 
 //VNET PEERING CONFIGURATION
 module vnetpeeringdns './modules/vnetpeering.bicep' = {
-  scope: dnsserverrg
+  scope: vnetrg
   name: 'vnetpeering'
   dependsOn: [
     akscluster, dnsserver
@@ -181,7 +181,7 @@ module vnetpeeringdns './modules/vnetpeering.bicep' = {
 }
 
 module vnetpeeringaks './modules/vnetpeering.bicep' = {
-  scope: vnetrg
+  scope: dnsserverrg
   name: 'vnetpeering2'
   dependsOn: [
     akscluster, dnsserver
