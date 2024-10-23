@@ -172,7 +172,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2022-03-01' = {
 }
 
 resource vmExtension 'Microsoft.Compute/virtualMachines/extensions@2021-07-01' = {
-  name: 'Custom-DNS-Server/CustomScriptExension'
+  name: 'CustomDNSServer/CustomScriptExension'
   location: location
   dependsOn: [
     vm
