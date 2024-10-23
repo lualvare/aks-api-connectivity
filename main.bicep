@@ -165,8 +165,6 @@ module dnsserver './modules/dns-server-config.bicep' = {
   scope: dnsserverrg
   params: {
     location: location
-    adminUsername: adminUsername
-    adminPass: adminPassword
   }
 }
 
