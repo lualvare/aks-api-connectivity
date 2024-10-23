@@ -173,18 +173,15 @@ module dnsserver './modules/dns-server-config.bicep' = {
 module vnetpeeringdns './modules/vnetpeering.bicep' = {
   scope: dnsserverrg
   name: 'vnetpeering'
-  dependsOn: [
-  akscluster, aksvnet, dnsserver
-  ]
   params: {
     peeringName: 'DNS-to-aks'
-    vnetName: DNSVNetName
+  //  vnetName: DNSVNetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
       remoteVirtualNetwork: {
         //id: aksvnet.outputs.aksVnetId
-        id: remoteDNSVNetId
+    //    id: remoteDNSVNetId
       }
     }    
   }
@@ -193,19 +190,15 @@ module vnetpeeringdns './modules/vnetpeering.bicep' = {
 module vnetpeeringaks './modules/vnetpeering.bicep' = {
   scope: vnetrg
   name: 'vnetpeering2'
-  dependsOn: [
-  akscluster, aksvnet, dnsserver
-  ]
   params: {
     peeringName: 'aks-to-dns'
-    vnetName: aksVnetName
+//    vnetName: aksVnetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
       remoteVirtualNetwork: {
-        id: aksVnetId
+  //      id: aksVnetId
       }
     }    
   }
 }
-
