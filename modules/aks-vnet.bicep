@@ -19,3 +19,6 @@ var aksSubnetId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetNa
 output aksVnetId string = vnet.id
 output akssubnet string = aksSubnetId
 output aksVnetName string = vnet.name
+output aksVnetSubnetId string = vnet.properties.subnets.id
+
+
