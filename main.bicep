@@ -103,7 +103,7 @@ module vnetpeeringdns './modules/vnetpeering.bicep' = {
   name: 'vnetpeering'
   params: {
     peeringName: 'DNS-to-aks'
-    vnetName: DNSVNetName
+    vnetName: dnsVirtualNetwork.outputs.DNSVNetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
