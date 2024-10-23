@@ -1,4 +1,4 @@
-targetScope = 'subscription'
+//targetScope = 'subscription'
 
 param location string = 'canadacentral'
 param userName string = 'lab1'
@@ -204,7 +204,6 @@ resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
   dependsOn: [
     aksvnet, vnetrg
   ]
-  scope: vnetrg
   location: location
   properties: {
     subnet: {
