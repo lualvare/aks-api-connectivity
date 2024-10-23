@@ -40,7 +40,7 @@ param vmSize string = 'Standard_D2s_v5'
 param location string = resourceGroup().location
 
 @description('Name of the virtual machine.')
-param vmName string = 'Custom-DNS-Server'
+param vmName string = 'CustomDNSServer'
 
 
 var nicName = 'myVMNic'
