@@ -202,7 +202,9 @@ module vnetpeeringaks './modules/vnetpeering.bicep' = {
 
 resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
   name: 'aksPrivateEndpoint'
-  scope: vnetrg
+  dependsOn: [
+    aksvnet
+  ]
   location: location
   properties: {
     subnet: {
