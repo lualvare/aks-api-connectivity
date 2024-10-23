@@ -49,6 +49,9 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
       outboundType: aksClusterOutboundType
       loadBalancerSku: aksClusterLoadBalancerSku
     }
+    apiServerAccessProfile: {
+      enablePrivateCluster: true
+    }
   }
 }
 
