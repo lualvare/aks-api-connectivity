@@ -60,4 +60,4 @@ var config = aks.listClusterAdminCredential().kubeconfigs[0].value
 output aks_principal_id string = aks.identity.principalId
 output controlPlaneFQDN string = aks.properties.fqdn
 output kubeConfig string = config
-output aksClusterURI string = aksCluster.id
+output aksClusterURI string = aks.id
