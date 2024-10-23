@@ -80,8 +80,7 @@ module dbvnet './modules/db-vnet.bicep' = {
 }
 */
 
-/*
-module privatednszone './modules/private-dns-zone.bicep' = {
+/*module privatednszone './modules/private-dns-zone.bicep' = {
   name: 'private-dns-zone'
   scope: dbrg
   dependsOn: [
@@ -98,12 +97,13 @@ module privatednszone './modules/private-dns-zone.bicep' = {
 */
 
 /*
+//VNET PEERING CONFIGURATION
 module vnetpeeringdb './modules/vnetpeering.bicep' = {
-  scope: dbrg
+  scope: dnsserverrg
   name: 'vnetpeering'
   params: {
-    peeringName: 'db-to-aks'
-    vnetName: dbvnet.outputs.vnetName
+    peeringName: 'DNS-to-aks'
+    //vnetName: dbvnet.outputs.vnetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
