@@ -1,12 +1,10 @@
 targetScope = 'subscription'
 
-/*
-// Params from outputs
-param aksVnetId string
-param aksVnetName string
-param DNSVNetName string
-param remoteDNSVNetId string
-*/
+@description('Password for the Virtual Machine.')
+@minLength(12)
+// This line below is to enter the password string in a secure way.
+@secure()
+param adminPassword string
 
 param location string = 'canadacentral'
 param userName string = 'lab1'
