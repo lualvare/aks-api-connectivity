@@ -40,13 +40,13 @@ module aksvnet './modules/aks-vnet.bicep' = {
       {
         name: 'aks-subnet'
         properties: {
-          addressPrefix: '10.1.0.0/24'
+          addressPrefix: '10.2.0.0/24'
         }
       } 
     ]
     vnetName: 'aks-vnet'
     vvnetPreffix:  [
-      '10.1.0.0/16'
+      '10.2.0.0/16'
     ]
   }
 }
