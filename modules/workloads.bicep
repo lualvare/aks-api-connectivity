@@ -9,7 +9,7 @@ extension kubernetes with {
 resource appsDeployment_test 'apps/Deployment@v1' = {
   metadata: {
     name: 'luis-test'
-    namespace: 'kube-system'
+    namespace: 'default'
     labels: {
       app: 'luis-test'
     }
