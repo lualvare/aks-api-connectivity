@@ -7,6 +7,7 @@ param adminUsername string = 'azureuser'
 //@secure()
 param adminPassword string = 'Azureuserpass0#'
 
+/*
 @description('Unique DNS Name for the Public IP used to access the Virtual Machine.')
 param dnsLabelPrefix string = toLower('${vmName}-${uniqueString(resourceGroup().id, vmName)}')
 
@@ -26,6 +27,7 @@ param publicIPAllocationMethod string = 'Dynamic'
   'Standard'
 ])
 param publicIpSku string = 'Basic'
+*/
 
 @description('The Windows version for the VM. This will pick a fully patched image of this given Windows version.')
 @allowed([
@@ -43,7 +45,7 @@ param location string = resourceGroup().location
 param vmName string = 'CustomDNSServer'
 
 
-var nicName = 'myVMNic'
+//var nicName = 'myVMNic'
 var addressPrefix = '10.1.0.0/16'
 var subnetName = 'Subnet'
 var subnetPrefix = '10.1.0.0/24'
@@ -51,6 +53,7 @@ var virtualNetworkName = 'DNSVNET'
 var networkSecurityGroupName = 'default-NSG'
 
 
+/*
 resource publicIp 'Microsoft.Network/publicIPAddresses@2022-05-01' = {
   name: publicIpName
   location: location
@@ -64,6 +67,7 @@ resource publicIp 'Microsoft.Network/publicIPAddresses@2022-05-01' = {
     }
   }
 }
+*/
 
 resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-05-01' = {
   name: networkSecurityGroupName
@@ -110,6 +114,7 @@ resource dnsVirtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' = {
   }
 }
 
+/*
 resource nic 'Microsoft.Network/networkInterfaces@2022-05-01' = {
   name: nicName
   location: location
@@ -134,6 +139,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2022-05-01' = {
     dnsVirtualNetwork
   ]
 }
+*/
 
 resource vm 'Microsoft.Compute/virtualMachines@2022-03-01' = {
   name: vmName
@@ -162,13 +168,13 @@ resource vm 'Microsoft.Compute/virtualMachines@2022-03-01' = {
       }
     }
 
-    networkProfile: {
-      networkInterfaces: [
-        {
-          id: nic.id
-        }
-      ]
-    }
+  //  networkProfile: {
+  //    networkInterfaces: [
+  //      {
+  //        id: nic.id
+      //  }
+    //  ]
+   // }
   }
 }
 
