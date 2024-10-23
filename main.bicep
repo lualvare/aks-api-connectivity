@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 
 @description('Username for the Virtual Machine.')
-param adminUsername string = 'azureuser'
+param adminUsername string
 
 @description('Password for the Virtual Machine.')
 @minLength(12)
