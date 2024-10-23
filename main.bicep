@@ -1,5 +1,14 @@
 targetScope = 'subscription'
 
+@description('Username for the Virtual Machine.')
+param adminUsername string = 'azureuser'
+
+@description('Password for the Virtual Machine.')
+@minLength(12)
+// This line below is to enter the password string in a secure way.
+@secure()
+param adminPassword string
+
 
 param location string = 'canadacentral'
 param userName string = 'lab1'
@@ -155,7 +164,9 @@ module dnsserver './modules/dns-server-config.bicep' = {
   name: 'dnsserver'
   scope: dnsserverrg
   params: {
-     location: location
+    location: location
+    adminUsername: adminUsername
+    adminPass: adminPassword
   }
 }
 
