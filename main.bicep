@@ -1,5 +1,6 @@
 targetScope = 'subscription'
 
+param DNSVNetName string
 param location string = 'canadacentral'
 param userName string = 'lab1'
 param resourceName string = 'api-connection'
@@ -103,7 +104,7 @@ module vnetpeeringdns './modules/vnetpeering.bicep' = {
   name: 'vnetpeering'
   params: {
     peeringName: 'DNS-to-aks'
-    vnetName: dnsVirtualNetwork.outputs.DNSVNetName
+    vnetName: DNSVNetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
