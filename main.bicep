@@ -160,7 +160,6 @@ module dnsserver './modules/dns-server-config.bicep' = {
 
 
 
-/*
 //VNET PEERING CONFIGURATION
 module vnetpeeringdns './modules/vnetpeering.bicep' = {
   scope: dnsserverrg
@@ -199,4 +198,4 @@ module vnetpeeringaks './modules/vnetpeering.bicep' = {
     }    
   }
 }
-*/
+
