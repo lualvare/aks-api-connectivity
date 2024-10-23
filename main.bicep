@@ -136,7 +136,7 @@ module vnetpeeringaks './modules/vnetpeering.bicep' = {
     }    
   }
 }
-*/
+
 
 /*
 module postgresqlModule './modules/postgresql-flexible-server.bicep' = {
