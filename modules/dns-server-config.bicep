@@ -1,3 +1,5 @@
+param staticIpAddress string = '10.1.0.100'
+
 @description('Username for the Virtual Machine.')
 param adminUsername string = 'azureuser'
 
@@ -119,7 +121,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2022-05-01' = {
         name: 'ipconfig1'
         properties: {
           privateIPAllocationMethod: 'Static'
-          privateIPAddress: 10.1.0.100
+          privateIPAddress: staticIpAddress
           publicIPAddress: {
             id: publicIp.id
           }
