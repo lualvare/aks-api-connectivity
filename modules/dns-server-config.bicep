@@ -118,7 +118,8 @@ resource nic 'Microsoft.Network/networkInterfaces@2022-05-01' = {
       {
         name: 'ipconfig1'
         properties: {
-          privateIPAllocationMethod: 'Dynamic'
+          privateIPAllocationMethod: 'Static'
+          privateIPAddress: 10.1.0.100
           publicIPAddress: {
             id: publicIp.id
           }
