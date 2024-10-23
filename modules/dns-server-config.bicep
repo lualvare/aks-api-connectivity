@@ -87,7 +87,7 @@ resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-05-0
   }
 }
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' = {
+resource dnsVirtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' = {
   name: virtualNetworkName
   location: location
   properties: {
@@ -193,4 +193,4 @@ resource vmExtension 'Microsoft.Compute/virtualMachines/extensions@2021-07-01' =
 
 
 output hostname string = publicIp.properties.dnsSettings.fqdn
-output remoteDNSVNetId string = virtualNetwork.id
+output remoteDNSVNetId string = dnsVirtualNetwork.id
