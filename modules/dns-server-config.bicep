@@ -1,4 +1,4 @@
-param staticIpAddress string = '10.1.0.100'
+param staticIpAddress string = '10.1.0.10'
 
 @description('Username for the Virtual Machine.')
 param adminUsername string = 'azureuser'
