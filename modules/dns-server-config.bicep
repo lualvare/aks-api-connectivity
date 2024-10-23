@@ -131,7 +131,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2022-05-01' = {
   }
   dependsOn: [
 
-    virtualNetwork
+    dnsVirtualNetwork
   ]
 }
 
