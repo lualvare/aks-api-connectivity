@@ -96,7 +96,7 @@ module dbvnet './modules/db-vnet.bicep' = {
 }
 */
 
-/*
+
 //VNET PEERING CONFIGURATION
 module vnetpeeringdb './modules/vnetpeering.bicep' = {
   scope: dnsserverrg
@@ -115,13 +115,12 @@ module vnetpeeringdb './modules/vnetpeering.bicep' = {
 }
 */
 
-/*
 module vnetpeeringaks './modules/vnetpeering.bicep' = {
   scope: vnetrg
   name: 'vnetpeering2'
   params: {
-    peeringName: 'aks-to-db'
-    vnetName: aksvnet.outputs.vnetName
+    peeringName: 'aks-to-dns'
+    //vnetName: aksvnet.outputs.vnetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
