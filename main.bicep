@@ -98,35 +98,34 @@ module dbvnet './modules/db-vnet.bicep' = {
 
 
 //VNET PEERING CONFIGURATION
-module vnetpeeringdb './modules/vnetpeering.bicep' = {
+module vnetpeeringdns './modules/vnetpeering.bicep' = {
   scope: dnsserverrg
   name: 'vnetpeering'
   params: {
     peeringName: 'DNS-to-aks'
-    //vnetName: dbvnet.outputs.vnetName
+    vnetName: DNSVNetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
       remoteVirtualNetwork: {
-        id: aksvnet.outputs.aksVnetId
-        id: dnsVirtualNetwork.outputs.remoteDNSVNetId
+        //id: aksvnet.outputs.aksVnetId
+        id: remoteDNSVNetId
       }
     }    
   }
 }
-*/
 
 module vnetpeeringaks './modules/vnetpeering.bicep' = {
   scope: vnetrg
   name: 'vnetpeering2'
   params: {
     peeringName: 'aks-to-dns'
-    //vnetName: aksvnet.outputs.vnetName
+    vnetName: aksVnetName
     properties: {
       allowVirtualNetworkAccess: true
       allowForwardedTraffic: true
       remoteVirtualNetwork: {
-        id: dbvnet.outputs.dbVnetId
+        id: aksVnetId
       }
     }    
   }
