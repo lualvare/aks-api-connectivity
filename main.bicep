@@ -237,10 +237,10 @@ module privateEndpointModule './modules/privateEndpoint.bicep' = {
   name: 'privateEndpointDeployment'
   scope: vnetrg
   params: {
-    privateEndpointName: 'aksprivateEndpointName'
+    privateEndpointName: 'aksprivateEndpoint'
     location: location
-    subnetId: subnetId
-    privateLinkServiceId: privateLinkServiceId
+    subnetId: aksvnet.outputs.akssubnet
+    privateLinkServiceId: akscluster.outputs.aksClusterURI
   }
 }
 
