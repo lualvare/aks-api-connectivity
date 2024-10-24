@@ -147,7 +147,7 @@ module roleAuthorization './modules/aks-auth.bicep' = {
 }
 
 module kubernetes './modules/workloads.bicep' = {
-  name: 'luis-test-deployment'
+  name: 'luis-test-deployment-2'
   scope: clusterrg
   dependsOn: [
     akscluster
