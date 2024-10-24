@@ -232,7 +232,7 @@ resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
 }
 */
 
-
+/*
 module privateEndpointModule './modules/privateEndpoint.bicep' = {
   name: 'privateEndpointDeployment'
   scope: vnetrg
@@ -243,6 +243,7 @@ module privateEndpointModule './modules/privateEndpoint.bicep' = {
     privateLinkServiceId: akscluster.outputs.aksClusterURI
   }
 }
+*/
 
 
 
