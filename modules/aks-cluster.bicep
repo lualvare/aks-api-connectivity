@@ -5,11 +5,9 @@ param nodeCount int = 2
 param vmSize string = 'Standard_B4ms'
 param agentpoolName string = 'nodepool1'
 param aksClusterNetworkPlugin string = 'azure'
-//param aksNetworkPluginMode string = 'overlay'
 param aksPodCidr string = '192.168.0.0/16'
 param aksServiceCidr string = '10.0.0.0/16'
 param aksDnsServiceIP string = '10.0.0.10'
-//param aksClusterNetworkPolicy string = 'calico'
 
 @description('Specifies outbound (egress) routing method. - loadBalancer or userDefinedRouting.')
 @allowed([
@@ -41,11 +39,9 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
     ]
     networkProfile: {
       networkPlugin: aksClusterNetworkPlugin
-      //networkPluginMode: aksNetworkPluginMode
       podCidr: aksPodCidr
       serviceCidr: aksServiceCidr
       dnsServiceIP: aksDnsServiceIP
-      //networkPolicy: aksClusterNetworkPolicy
       outboundType: aksClusterOutboundType
       loadBalancerSku: aksClusterLoadBalancerSku
     }
