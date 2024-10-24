@@ -126,7 +126,7 @@ module postgresqlModule './modules/postgresql-flexible-server.bicep' = {
 module akscluster './modules/aks-cluster.bicep' = {
   name: resourceName
   scope: clusterrg
-  dependsOn: [ aksvnet ] //, privatednszone ]
+  dependsOn: [ aksvnet, vnetpeeringdns, vnetpeeringaks ]
   params: {
     location: location
     clusterName: 'aks-${resourceName}'
@@ -174,7 +174,7 @@ module vnetpeeringdns './modules/vnetpeering.bicep' = {
   scope: vnetrg
   name: 'vnetpeering'
   dependsOn: [
-    akscluster, dnsserver
+    aksvnet, dnsserver
   ]
   params: {
     peeringName: 'aks-to-dns'
@@ -193,7 +193,7 @@ module vnetpeeringaks './modules/vnetpeering.bicep' = {
   scope: dnsserverrg
   name: 'vnetpeering2'
   dependsOn: [
-    akscluster, dnsserver
+    aksvnet, dnsserver
   ]
   params: {
     peeringName: 'dns-to-aks'
