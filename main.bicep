@@ -233,7 +233,7 @@ resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
 */
 
 
-module privateEndpointModule 'privateEndpoint.bicep' = {
+module privateEndpointModule './modules/privateEndpoint.bicep' = {
   name: 'privateEndpointDeployment'
   params: {
     privateEndpointName: privateEndpointName
