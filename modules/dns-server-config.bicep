@@ -50,7 +50,7 @@ var nicName = 'myVMNic'
 var addressPrefix = '10.1.0.0/16'
 var subnetName = 'Subnet'
 var subnetPrefix = '10.1.0.0/24'
-var virtualNetworkName = 'DNSVNET'
+var virtualNetworkName = 'dnsVnet'
 var networkSecurityGroupName = 'default-NSG'
 
 
