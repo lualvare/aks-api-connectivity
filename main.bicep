@@ -1,6 +1,5 @@
 targetScope = 'subscription'
 
-
 @description('Username for the DNS Virtual Machine.')
 param adminUsername string
 
@@ -9,7 +8,6 @@ param adminUsername string
 // This line below is to enter the password string in a secure way.
 @secure()
 param adminPassword string
-
 
 param location string = 'canadacentral'
 param userName string = 'lab1'
