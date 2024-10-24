@@ -1,5 +1,12 @@
 targetScope = 'subscription'
 
+//Private Endpoint params
+param privateEndpointName string
+param location string = resourceGroup().location
+param subnetId string
+param privateLinkServiceId string
+
+
 param location string = 'canadacentral'
 param userName string = 'lab1'
 param resourceName string = 'api-connection'
@@ -199,6 +206,7 @@ module vnetpeeringaks './modules/vnetpeering.bicep' = {
   }
 }
 
+/*
 resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
   name: 'aksPrivateEndpoint'
   scope: vnetrg
@@ -223,3 +231,20 @@ resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
     ]
   }
 }
+*/
+
+
+
+
+module privateEndpointModule 'privateEndpoint.bicep' = {
+  name: 'privateEndpointDeployment'
+  params: {
+    privateEndpointName: privateEndpointName
+    location: location
+    subnetId: subnetId
+    privateLinkServiceId: privateLinkServiceId
+  }
+}
+
+
+
