@@ -6,7 +6,12 @@ param subnets array
 resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
   name: vnetName
   location: location
-  properties: {
+  properties: {dhcpOptions: {
+    dnsServers: [
+      '10.1.0.10'  //custom DNS server IP address
+      ]
+    }
+
     addressSpace: {
       addressPrefixes: vvnetPreffix
     }
