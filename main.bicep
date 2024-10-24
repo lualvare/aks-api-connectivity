@@ -2,7 +2,6 @@ targetScope = 'subscription'
 
 //Private Endpoint params
 param privateEndpointName string
-param location string = resourceGroup().location
 param subnetId string
 param privateLinkServiceId string
 
