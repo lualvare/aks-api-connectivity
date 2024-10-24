@@ -1,10 +1,11 @@
 targetScope = 'subscription'
 
+/*
 //Private Endpoint params
 param privateEndpointName string
 param subnetId string
 param privateLinkServiceId string
-
+*/
 
 param location string = 'canadacentral'
 param userName string = 'lab1'
