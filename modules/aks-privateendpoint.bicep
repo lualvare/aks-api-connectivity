@@ -1,22 +1,28 @@
-resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
-  name: 'aksPrivateEndpoint'
-  scope: vnetrg
-  dependsOn: [
-    aksvnet, vnetrg
-  ]
+param privateEndpointName string
+param location string = resourceGroup().location
+param subnetId string
+param privateLinkServiceId string
+
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-11-01' = {
+  name: privateEndpointName
   location: location
   properties: {
     subnet: {
-      id: aksvnet.outputs.akssubnet
+      id: subnetId
     }
     privateLinkServiceConnections: [
       {
-        name: 'aksConnection'
+        name: 'myPrivateLinkServiceConnection'
         properties: {
-          privateLinkServiceId: akscluster.outputs.aksClusterURI
+          privateLinkServiceId: privateLinkServiceId
           groupIds: [
-            'management'
+            'groupId'
           ]
+          privateLinkServiceConnectionState: {
+            status: 'Approved'
+            description: 'Auto-approved'
+            actionsRequired: 'None'
+          }
         }
       }
     ]
