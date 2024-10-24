@@ -208,7 +208,7 @@ resource aksPrivateEndpoint 'Microsoft.Network/privateEndpoints@2021-02-01' = {
   location: location
   properties: {
     subnet: {
-      id: aksvnet.outputs.aksVnetSubnetId
+      id: aksvnet.outputs.akssubnet
     }
     privateLinkServiceConnections: [
       {
