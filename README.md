@@ -1,4 +1,4 @@
-# AKS API Connectivity
+# AKS API Connectivity Issue Lab.
 
 This repository provides a bicep template to deploy an AKS cluster scenario for AKS API connectivity issues.
 
