@@ -8,4 +8,4 @@ Clone the repo, go to the directory, and run:
 az deployment sub create --name <DEPLOYMENT_NAME> -l <LOCATION> --template-file main.bicep
 ```
 
-Note: Currently all files are referencing canadacentral location, but it can be change using params.
+Note: Currently all files are referencing canadacentral location, this can be overwriten using the param flag like this "--parameters location='eastus2'".
