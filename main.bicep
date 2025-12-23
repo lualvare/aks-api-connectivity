@@ -8,7 +8,6 @@ var aksResourceGroupName = 'aks-${resourceName}-${userName}-rg'
 var vnetResourceGroupName = 'vnet-${resourceName}-${userName}-rg'
 var dnsserverResourceGroupName = 'dnsserver-${resourceName}-${userName}-rg'
 
-// WHAT IS THIS FOR????     <<<<<<<<<<<<<<<<<<<<<<============================
 var contributorRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
 
 resource clusterrg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
